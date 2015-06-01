@@ -1,4 +1,4 @@
-// <?php
+<?php
 $link=mysqli_connect("localhost","root","","TicketSell");
 
 if (mysqli_connect_errno())
@@ -17,7 +17,7 @@ if($action=="printTabelaLeilao"){
     echo '<div class="input-group">
     <span class="input-group-addon" id="basic-addon1">M</span>
     <input type="text" class="form-control search_box" placeholder="Search" >
-    <button class="btn btn-primary" onclick="showModalNovoLeilao()" >Novo <span class="glyphicon glyphicon-plus"></button>
+    <button class="btn btn-primary" onclick="showModalNovoLeilao()"> Novo <span class="glyphicon glyphicon-plus"></button>
     </div>';
     // echo "<button class='btn btn-primary '>Novo <span class='glyphicon glyphicon-plus'></button>";
 
@@ -67,7 +67,7 @@ if($action=="printTabelaLeilao"){
 		
 		
 		//EDIT
-        echo "<td id='option_leilao_".$row['id_leilao']."'><button id ='button_edit_".$row['id_leilao']."' onclick='changetoEdit(".$row['id_leilao'].")' type='button' value='".$row['id_leilao']."' class='btn btn-warning btn-xs'><span class='glyphicon glyphicon-pencil'></span></button>&nbsp;";
+        echo "<td id='button_edit_".$row['id_leilao']."'><button id ='button_edit_".$row['id_leilao']."' onclick='changetoEdit(".$row['id_leilao'].")' type='button' value='".$row['id_leilao']."' class='btn btn-warning btn-xs'><span class='glyphicon glyphicon-pencil'></span></button>&nbsp;";
         
         //DELETE        
         echo "<button id ='button_delete_".$row['id_leilao']."' type='button' onclick='delete_row_from_table_leilao(".$row['id_leilao'].")' class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-trash'></span></button>&nbsp;";
@@ -234,106 +234,6 @@ else if($action=="delete_row_from_table_leilao"){
     // echo $id_leilao;
     $query="DELETE FROM Leilao WHERE id_leilao = $id_leilao;"; 
     echo ($query);
-    $show=mysqli_query($link,$query) or die ("Error");
-    
-    
-}
-// -------------------------------------------------------------- UPDATE TABELA USERS -------------------------------------------------------
-else if($action=="update_Table_users"){
-
-    $id_users=$_POST['id_users'];
-    $username=$_POST["username"];
-    $cod_postal=$_POST["cod_postal"];
-    $telefone=$_POST["telefone"];
-    $cartao_cidadao=$_POST["cartao_cidadao"];
-    $nif=$_POST["nif"];
-    $saldo=$_POST["saldo"];
-   
-
-
-    $query=" UPDATE Users SET username = '".$username."', cod_postal = ".$cod_postal.", telefone = ".$telefone.", cartao_cidadao = ".$cartao_cidadao.", nif = ".$nif.", saldo = ".$saldo." WHERE id_users = ".$id_users."";
-    //echo $query;
-    $show=mysqli_query($link,$query) or die ("Error");    
-}
-// -------------------------------------------------------------- DELETE TABELA USERS -------------------------------------------------------
-else if($action=="delete_row_from_table_users"){
-
-    // $id_aluno=$_POST["value"];
-    $id_users=$_POST["id_users"];
-    // echo $id_leilao;
-    $query="DELETE FROM Users WHERE id_users = $id_users;"; 
-    echo ($query);
-    $show=mysqli_query($link,$query) or die ("Error");
-    
-    
-}
-// -------------------------------------------------------------- UPDATE TABELA MOVIES -------------------------------------------------------
-else if($action=="update_Table_movies"){
-
-    $id_movie=$_POST['id_movie'];
-    $title=$_POST['title'];
-    
-   
-
-
-    $query= "UPDATE Movies SET title = '".$title."' WHERE id_movie = $id_movie";
-    // echo ($query);
-    $show=mysqli_query($link,$query) or die ("Error");    
-}
-
-// -------------------------------------------------------------- DELETE TABELA MOVIES -------------------------------------------------------
-else if($action=="delete_row_from_table_movies"){
-
-    // $id_aluno=$_POST["value"];
-    $id_movie=$_POST["id_movie"];
-    // echo $id_leilao;
-    $query="DELETE FROM Movies WHERE id_movie = $id_movie;"; 
-    //echo ($query);
-    $show=mysqli_query($link,$query) or die ("Error");
-    
-    
-}
-// -------------------------------------------------------------- UPDATE TABELA PLACES -------------------------------------------------------
-else if($action=="update_Table_places"){
-
-    $id_local=$_POST['id_local'];
-    $nome=$_POST['nome'];
-    $morada=$_POST['morada'];
-    $area=$_POST['area'];
-    
-   
-
-
-    $query= "UPDATE Local SET nome = '".$nome."', morada='".$morada."', area='".$area."' WHERE id_local = $id_local";
-    // echo ($query);
-    $show=mysqli_query($link,$query) or die ("Error");    
-}
-// -------------------------------------------------------------- DELETE TABELA PLACES -------------------------------------------------------
-else if($action=="delete_row_from_table_palces"){
-
-    // $id_aluno=$_POST["value"];
-    $id_local=$_POST['id_local'];
-    // echo $id_leilao;
-    $query="DELETE FROM Local WHERE id_local = $id_local;"; 
-    //echo ($query);
-    $show=mysqli_query($link,$query) or die ("Error");
-    
-    
-}
-// -------------------------------------------------------------- INSERE NOVO LEILAO -------------------------------------------------------
-else if($action=="insere"){
-
-    
-    $stock=$_POST['stock'];
-    $preco_base=$_POST['preco_base'];
-    $preco_final=$_POST['preco_final'];
-    $licitacoes=$_POST['licitacoes'];
-	$extra=$_POST['extra'];
-    $tempo=$_POST['tempo'];
-
-    // echo $id_leilao;
-    $query="insert into Leilao (stock,preco_base,preco_final,licitacoes,extra,tempo) values ($stock,$preco_base,$preco_final,$licitacoes,$extra,$tempo);"; 
-    //echo ($query);
     $show=mysqli_query($link,$query) or die ("Error");
     
     

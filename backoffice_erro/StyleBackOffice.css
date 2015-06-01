@@ -1,0 +1,56 @@
+.section_2_2{
+	/*margin-top: 100px;*/
+}
+
+#section_2 img {
+	min-height: 200px;
+	width: 200px;
+	margin-bottom: -10px;
+	padding-bottom: 50px;
+
+
+}
+
+.table thead{
+	font-weight: bold;
+	text-align: center;
+
+}
+.table tbody{
+	text-align: center;
+
+}
+
+.table tbody tr:hover{
+	/*text-align: left;*/
+	background-color: #DDDDDD;
+
+}
+
+#menu ul li:hover{
+	cursor: pointer;
+
+}
+
+input{
+	width: 80px;
+	background-color: rgba(0,0,0,0);
+	border: none;
+	text-align: center;
+}
+input:focus {
+    /*outline: 0;*/
+    outline-color: rgba(0,0,0,0.2);
+}
+
+.input_active_edit{
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.non_display_button{
+	display: none !important;
+}
+
+.search_box{
+	width: 150px !important;
+}
